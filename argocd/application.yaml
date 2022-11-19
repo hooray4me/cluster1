@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/hooray4me/cluster1.git
+    repoURL: https://github.com/hooray4me/cluster1
     targetRevision: HEAD
     directory:
       recurse: true
