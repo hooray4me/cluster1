@@ -38,7 +38,7 @@ spec:
       containers:
       - image: lissy93/dashy:latest
         imagePullPolicy: IfNotPresent
-        name: sonarr
+        name: dashy
         ports:
         - containerPort: 80
           protocol: TCP
