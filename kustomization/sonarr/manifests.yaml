@@ -1,0 +1,70 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sonarr-service
+spec:
+  ports:
+  - port: 8989
+    protocol: TCP
+    targetPort: 8989
+  selector:
+    app: sonarr
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: sonarr
+  name: sonarr-statefulset
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sonarr
+  serviceName: sonarr-service
+  template:
+    metadata:
+      labels:
+        app: sonarr
+    spec:
+      containers:
+      - env:
+        - name: UID
+          value: "999"
+        - name: GID
+          value: "999"
+        - name: TZ
+          value: America/Chicago
+        image: linuxserver/sonarr:amd64-latest
+        imagePullPolicy: Always
+        name: sonarr
+        ports:
+        - containerPort: 8989
+          name: sonarr
+        volumeMounts:
+        - mountPath: /config
+          name: sonarr-config
+          subPath: config
+        - mountPath: /mnt/NAS
+          name: nfs-emby
+        - mountPath: /mnt/downloads
+          name: nfs-k8
+          subPath: downloads
+      terminationGracePeriodSeconds: 10
+      volumes:
+      - name: nfs-k8
+        persistentVolumeClaim:
+          claimName: nfs-k8c
+      - name: nfs-emby
+        persistentVolumeClaim:
+          claimName: nfs-embyc
+  volumeClaimTemplates:
+  - metadata:
+      name: sonarr-config
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 2Gi
