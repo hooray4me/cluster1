@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: sabnzbd-statefulset
+  labels:
+    app: sabnzbd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sabnzbd
+  serviceName: sabnzbd-service
+  template:
+    metadata:
+      labels:
+        app: sabnzbd
+    spec:
+      containers:
+      - image: linuxserver/sabnzbd:amd64-latest
+        name: sabnzbd
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+          name: sonarr
+        env:
+        - name: UID
+          value: "999"
+        - name: GID
+          value: "999"
+        - name: TZ
+          value: America/Chicago
+        volumeMounts:
+        - mountPath: /config
+          name: sabnzbd-config
+          subPath: config
+        - mountPath: /mnt/NAS
+          name: nfs-emby
+        - mountPath: /mnt/downloads
+          subPath: downloads
+          name: nfs-k8
+      terminationGracePeriodSeconds: 10
+      volumes:
+      - name: nfs-k8
+        persistentVolumeClaim:
+           claimName: nfs-k8c
+      - name: nfs-emby
+        persistentVolumeClaim:
+          claimName: nfs-embyc
+  volumeClaimTemplates:
+  - metadata:
+      name: sabnzbd-config
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi
