@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: radarr-statefulset
+  labels:
+    app: radarr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: radarr
+  serviceName: radarr-service
+  template:
+    metadata:
+      labels:
+        app: radarr
+    spec:
+      containers:
+      - image: linuxserver/radarr:amd64-latest
+        name: radarr
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 7878
+          name: radarr
+        env:
+        - name: UID
+          value: "999"
+        - name: GID
+          value: "999"
+        - name: TZ
+          value: America/Chicago
+        volumeMounts:
+        - mountPath: /config
+          name: radarr-config
+          subPath: config
+        - mountPath: /mnt/NAS/movies
+          name: nfs-proxmox3-1
+        - mountPath: /mnt/downloads
+          subPath: downloads
+          name: nfs-k8
+      terminationGracePeriodSeconds: 10
+      volumes:
+      - name: nfs-k8
+        persistentVolumeClaim:
+           claimName: nfs-k8c
+      - name: nfs-proxmox3-1
+        persistentVolumeClaim:
+          claimName: nfs-proxmox3-1c
+  volumeClaimTemplates:
+  - metadata:
+      name: radarr-config
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 2Gi
