@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: udpxy-statefulset
+  labels:
+    app: udpxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: udpxy
+  serviceName: udpxy-service
+  template:
+    metadata:
+      labels:
+        app: udpxy
+    spec:
+      containers:
+      - image: agrrh/udpxy:latest
+        name: udpxy
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4022
+          name: udpxy
+        env:
+        - name: UID
+          value: "999"
+        - name: GID
+          value: "999"
+        - name: TZ
+          value: America/Chicago
+      terminationGracePeriodSeconds: 10

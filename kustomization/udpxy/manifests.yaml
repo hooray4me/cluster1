@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: udpxy-service
+spec:
+  ports:
+  - port: 4022
+    protocol: TCP
+    targetPort: 4022
+  - port: 4022
+    protocol: UDP
+    targetPort: 4022
+  selector:
+    app: udpxy
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: udpxy
+  name: udpxy-statefulset
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: udpxy
+  serviceName: udpxy-service
+  template:
+    metadata:
+      labels:
+        app: udpxy
+    spec:
+      containers:
+      - env:
+        - name: UID
+          value: "999"
+        - name: GID
+          value: "999"
+        - name: TZ
+          value: America/Chicago
+        image: agrrh/udpxy:latest
+        imagePullPolicy: Always
+        name: udpxy
+        ports:
+        - containerPort: 4022
+          name: udpxy
+      terminationGracePeriodSeconds: 10
