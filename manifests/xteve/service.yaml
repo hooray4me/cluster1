@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: xteve-service
+spec:
+  selector:
+    app: xteve
+  ports:
+  - protocol: TCP
+    port: 34400
+    targetPort: 34400
+  type: LoadBalancer

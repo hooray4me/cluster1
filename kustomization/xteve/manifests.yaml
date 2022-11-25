@@ -1,0 +1,64 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: xteve-service
+spec:
+  ports:
+  - port: 34400
+    protocol: TCP
+    targetPort: 34400
+  selector:
+    app: xteve
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: xteve
+  name: xteve-statefulset
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: xteve
+  serviceName: xteve-service
+  template:
+    metadata:
+      labels:
+        app: xteve
+    spec:
+      containers:
+      - env:
+        - name: UID
+          value: "999"
+        - name: GID
+          value: "999"
+        - name: TZ
+          value: America/Chicago
+        image: alturismo/xteve:latest
+        imagePullPolicy: Always
+        name: xteve
+        ports:
+        - containerPort: 34400
+          name: xteve
+        volumeMounts:
+        - mountPath: /config
+          name: xteve
+          subPath: config
+        - mountPath: /root/.xteve
+          name: xteve
+          subPath: root
+        - mountPath: /tmp/xteve
+          name: xteve
+          subPath: tmp
+      terminationGracePeriodSeconds: 10
+  volumeClaimTemplates:
+  - metadata:
+      name: xteve
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 10Gi
