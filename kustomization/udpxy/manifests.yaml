@@ -5,7 +5,7 @@ metadata:
 spec:
   ports:
   - port: 4022
-    protocol: TCP
+    protocol: UDP
     targetPort: 4022
   selector:
     app: udpxy

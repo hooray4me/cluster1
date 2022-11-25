@@ -6,7 +6,7 @@ spec:
   selector:
     app: udpxy
   ports:
-  - protocol: TCP
+  - protocol: UDP
     port: 4022
     targetPort: 4022
   type: LoadBalancer
