@@ -9,7 +9,4 @@ spec:
   - protocol: TCP
     port: 4022
     targetPort: 4022
-  - protocol: UDP
-    port: 4022
-    targetPort: 4022
   type: LoadBalancer
