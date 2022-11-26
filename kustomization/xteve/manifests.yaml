@@ -18,7 +18,7 @@ metadata:
     app: xteve
   name: xteve-statefulset
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: xteve
