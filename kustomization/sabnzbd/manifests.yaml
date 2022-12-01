@@ -47,16 +47,16 @@ spec:
           name: sabnzbd-config
           subPath: config
         - mountPath: /mnt/NAS
-          name: nfs-emby
+          name: nfs-emby-media
         - mountPath: /mnt/downloads
-          name: nfs-k8
+          name: nfs-k8-media
           subPath: downloads
       terminationGracePeriodSeconds: 10
       volumes:
-      - name: nfs-k8
+      - name: nfs-k8-media
         persistentVolumeClaim:
           claimName: nfs-k8c
-      - name: nfs-emby
+      - name: nfs-emby-media
         persistentVolumeClaim:
           claimName: nfs-embyc
   volumeClaimTemplates:
