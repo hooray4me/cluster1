@@ -37,10 +37,10 @@ spec:
           name: nfs-proxmox3-1
         - mountPath: /mnt/downloads
           subPath: downloads
-          name: nfs-k8
+          name: nfs-k8-media
       terminationGracePeriodSeconds: 10
       volumes:
-      - name: nfs-k8
+      - name: nfs-k8-media
         persistentVolumeClaim:
            claimName: nfs-k8c
       - name: nfs-proxmox3-1
