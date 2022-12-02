@@ -1,5 +1,5 @@
 # -- Server replicas
-replicas: 1
+replicas: 2
 # -- Custom priority class for different treatment by the scheduler
 priorityClassName:
 # -- server securityContext
@@ -7,7 +7,7 @@ securityContext: {}
 
 worker:
 
-  replicas: 1
+  replicas: 2
   # -- Custom priority class for different treatment by the scheduler
   priorityClassName:
   # -- worker securityContext
