@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: authentik-cm
+data:
+  emailusetls: "true"
+  emailport: "587"
+  errorreportingenabled: "true"
