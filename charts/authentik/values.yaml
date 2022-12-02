@@ -167,6 +167,14 @@ envValueFrom:
     secretKeyRef:
       key: email-from
       name: authentik-secrets
+  GEOIP__ACCOUNTID:
+    secretKeyRef:
+      key: accountId
+      name: authentik-geoip-secret
+  GEOIP__LICENSEKEY:
+    secretKeyRef:
+      key: licenseKey
+      name: authentik-geoip-secret
 service:
   # -- Service that is created to access authentik
   enabled: true
