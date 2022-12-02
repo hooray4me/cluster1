@@ -121,7 +121,17 @@ authentik:
 blueprints: []
 
 # -- see configuration options at https://goauthentik.io/docs/installation/configuration/
-env: {}
+env:
+- name: GEOIP__ACCOUNTID
+  valueFrom:
+    secretKeyRef:
+      key:  accountId
+      name: authentik-geoip-secret
+- name: GEOIP__ACCOUNTID
+  valueFrom:
+    secretKeyRef:
+      key:  licenseKey
+      name: authentik-geoip-secret
 # envFrom: 
 #  - secretRef:
 #      name: authentik-secrets
@@ -167,14 +177,6 @@ envValueFrom:
     secretKeyRef:
       key: email-from
       name: authentik-secrets
-  GEOIP__ACCOUNTID:
-    secretKeyRef:
-      key: accountId
-      name: authentik-geoip-secret
-  GEOIP__LICENSEKEY:
-    secretKeyRef:
-      key: licenseKey
-      name: authentik-geoip-secret
 service:
   # -- Service that is created to access authentik
   enabled: true
