@@ -170,8 +170,8 @@ envValueFrom:
 service:
   # -- Service that is created to access authentik
   enabled: true
-  type: NodePort
-  port: LoadBalancer
+  type: LoadBalancer
+  port: 9090
   name: http
   protocol: TCP
   labels: {}
