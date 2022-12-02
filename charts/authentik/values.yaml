@@ -121,17 +121,8 @@ authentik:
 blueprints: []
 
 # -- see configuration options at https://goauthentik.io/docs/installation/configuration/
-env:
-- name: GEOIP__ACCOUNTID
-  valueFrom:
-    secretKeyRef:
-      key:  accountId
-      name: authentik-geoip-secret
-- name: GEOIP__ACCOUNTID
-  valueFrom:
-    secretKeyRef:
-      key:  licenseKey
-      name: authentik-geoip-secret
+env: {}
+
 # envFrom: 
 #  - secretRef:
 #      name: authentik-secrets
