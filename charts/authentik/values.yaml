@@ -180,7 +180,7 @@ service:
 volumes:
   - name: nfs-k8-authentik
     persistentVolumeClaim:
-      claimName: nfs-k8c-authentik
+      claimName: nfs-k8c
 
 volumeMounts:
   - name: nfs-k8-authentik
