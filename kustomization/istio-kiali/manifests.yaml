@@ -543,3 +543,23 @@ spec:
           name: kiali-cabundle
           optional: true
         name: kiali-cabundle
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: istio-kiali-virtual-service
+  namespace: istio-system
+spec:
+  gateways:
+  - default/istio-gateway
+  hosts:
+  - kiali.secfam.cloud
+  http:
+  - match:
+    - uri:
+        prefix: /
+    route:
+    - destination:
+        host: kiali.istio-system.svc.cluster.local
+        port:
+          number: 20001
