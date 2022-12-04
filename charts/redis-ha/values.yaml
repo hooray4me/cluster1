@@ -173,7 +173,7 @@ haproxy:
       - ALL
 
   ## Whether the haproxy pods should be forced to run on separate nodes.
-  hardAntiAffinity: false
+  hardAntiAffinity: true
 
   ## Additional affinities to add to the haproxy pods.
   additionalAffinities: {}
