@@ -152,6 +152,14 @@ envValueFrom:
     secretKeyRef:
       key: postgresql-password
       name: authentik-secrets
+  AUTHENTIK_REDIS__HOST:
+    configMapKeyRef:
+      key: redishost
+      name: authentik-cm
+  AUTHENTIK_REDIS__PASSWORD:
+    secretKeyRef:
+      key: auth
+      name: redis-secret
   AUTHENTIK_EMAIL__HOST:
     secretKeyRef:
       key: email-host
@@ -261,7 +269,7 @@ postgresql:
       - ReadWriteOnce
 redis:
   # -- enable the bundled bitnami redis chart
-  enabled: true
+  enabled: false
   architecture: standalone
   auth:
     enabled: false

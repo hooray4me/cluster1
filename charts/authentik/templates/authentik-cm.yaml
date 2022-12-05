@@ -6,3 +6,4 @@ data:
   emailusetls: "true"
   emailport: "587"
   errorreportingenabled: "true"
+  redishost: "redis-ha.redis.svc.cluster.local"
