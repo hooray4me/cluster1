@@ -65,7 +65,7 @@ serviceAccount:
 ## Recommend for externally exposed Redis clusters.
 ## ref: https://cbonte.github.io/haproxy-dconv/1.9/intro.html
 haproxy:
-  enabled: false
+  enabled: true
   servicePort: 6379
   containerPort: 6379
   ## Enable TLS termination on HAproxy, This will create a volume mount
@@ -327,15 +327,15 @@ sentinel:
   # authClients: "no"
 
   ## Configures sentinel with AUTH (requirepass params)
-  auth: true
+  auth: false
 
   # password: password
 
   ## Use existing secret containing key `authKey` (ignores sentinel.password)
-  existingSecret: sentinel-secret
+  #existingSecret: sentinel-secret
 
   ## Defines the key holding the sentinel password in existing secret.
-  authKey: sentinel-password
+  #authKey: sentinel-password
 
   # liveness probe parameters for sentinel container
   livenessProbe:
@@ -550,15 +550,15 @@ podDisruptionBudget: {}
   # minAvailable: 1
 
 ## Configures redis with AUTH (requirepass & masterauth conf params)
-auth: true
+auth: false
 # redisPassword:
 
 ## Use existing secret containing key `authKey` (ignores redisPassword)
 ## Can also store AWS S3 or SSH secrets in this secret
-existingSecret: redis-secret
+#existingSecret: redis-secret
 
 ## Defines the key holding the redis password in existing secret.
-authKey: auth
+#authKey: auth
 
 persistentVolume:
   enabled: true
