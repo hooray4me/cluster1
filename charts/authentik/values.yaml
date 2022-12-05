@@ -42,7 +42,7 @@ ingress:
 
 authentik:
   # -- Log level for server and worker
-  log_level: info
+  log_level: trace
   # -- Secret key used for cookie singing and unique user IDs,
   # don't change this after the first install
   secret_key: ""
@@ -172,7 +172,7 @@ envValueFrom:
 service:
   # -- Service that is created to access authentik
   enabled: true
-  type: LoadBalancer
+  type: ClusterIP
   port: 9090
   name: http
   protocol: TCP
