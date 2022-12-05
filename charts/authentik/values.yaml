@@ -113,7 +113,8 @@ authentik:
   redis:
     # -- set the redis hostname to talk to
     # @default -- `{{ .Release.Name }}-redis-master`
-    host: '{{ .Release.Name }}-redis-master'
+    # host: '{{ .Release.Name }}-redis-master'
+    host: "redis-ha-haproxy.redis.svc.cluster.local"
     password: ""
 
 # -- List of config maps to mount blueprints from. Only keys in the
@@ -262,7 +263,7 @@ postgresql:
       - ReadWriteOnce
 redis:
   # -- enable the bundled bitnami redis chart
-  enabled: true
+  enabled: false
   architecture: standalone
   auth:
     enabled: false
