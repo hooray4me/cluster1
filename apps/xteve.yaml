@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/hooray4me/cluster1.git
     targetRevision: HEAD
-    path: kustomization/xteve
+    path: manifests/xteve/overlays/prod
   destination:
     server: https://kubernetes.default.svc
     namespace: default
