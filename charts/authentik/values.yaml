@@ -174,8 +174,8 @@ envValueFrom:
       name: authentik-cm
   AUTHENTIK_REDIS__PASSWORD:
     secretKeyRef:
-      key: auth
-      name: redis-secret
+      key: redis-password
+      name: authentik-secrets
 service:
   # -- Service that is created to access authentik
   enabled: true
