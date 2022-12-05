@@ -152,14 +152,6 @@ envValueFrom:
     secretKeyRef:
       key: postgresql-password
       name: authentik-secrets
-  AUTHENTIK_REDIS__HOST:
-    configMapKeyRef:
-      key: redishost
-      name: authentik-cm
-  AUTHENTIK_REDIS__PASSWORD:
-    secretKeyRef:
-      key: auth
-      name: redis-secret
   AUTHENTIK_EMAIL__HOST:
     secretKeyRef:
       key: email-host
@@ -176,6 +168,14 @@ envValueFrom:
     secretKeyRef:
       key: email-from
       name: authentik-secrets
+  AUTHENTIK_REDIS__HOST:
+    configMapKeyRef:
+      key: redishost
+      name: authentik-cm
+  AUTHENTIK_REDIS__PASSWORD:
+    secretKeyRef:
+      key: auth
+      name: redis-secret
 service:
   # -- Service that is created to access authentik
   enabled: true
