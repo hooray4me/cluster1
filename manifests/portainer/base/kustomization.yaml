@@ -8,3 +8,4 @@ resources:
 - rbac.yaml
 - statefulset.yaml
 - service.yaml
+- virtualservice.yaml
