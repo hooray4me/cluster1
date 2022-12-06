@@ -12,6 +12,8 @@ spec:
   - match:
     - uri:
         prefix: /
+    - uri:
+        regex: ^\/[^\.]+.*
     route:
     - destination:
         port:
