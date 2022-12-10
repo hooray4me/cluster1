@@ -115,7 +115,7 @@ configKubernetes:
   # - downscaler/*
 
   # allow user secrets in other namespaces than the Postgres cluster
-  enable_cross_namespace_secret: false
+  enable_cross_namespace_secret: true
   # enables initContainers to run actions before Spilo is started
   enable_init_containers: true
   # toggles pod anti affinity on the Postgres pods
