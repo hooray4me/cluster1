@@ -18,9 +18,12 @@ spec:
     namespace: default
   syncPolicy:
     syncOptions:
+    - Validate=true
     - CreateNamespace=true
+    - PrunePropagationPolicy=foreground
     - PruneLast=true
-    - ApplyOutOfSyncOnly=true
+    - ApplyOutOfSyncOnly=false
+    - Prune=true
     automated:
       selfHeal: true
       prune: true
