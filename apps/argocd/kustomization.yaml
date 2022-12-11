@@ -11,6 +11,7 @@ resources:
 - base/core/namespaces.yaml
 - base/core/argocd.yaml
 - base/apps/sonarr.yaml
+- base/apps/sabnzbd.yaml
 - https://raw.githubusercontent.com/argoproj/argo-cd/v2.3.11/manifests/install.yaml
 
 # components:
