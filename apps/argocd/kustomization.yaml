@@ -10,7 +10,7 @@ resources:
 - base/projects/networking.yaml
 - base/core/namespaces.yaml
 - base/core/argocd.yaml
-- base/apps/root.yaml
+- base/apps/root-app.yaml
 # - base/apps/sonarr.yaml
 # - base/apps/sabnzbd.yaml
 # - base/apps/radarr.yaml

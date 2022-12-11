@@ -8,7 +8,7 @@ spec:
   project: core
   source:
     repoURL: https://github.com/hooray4me/cluster1.git
-    path: apps/root
+    path: apps/root-app
     directory:
       recurse: true
     targetRevision: HEAD
