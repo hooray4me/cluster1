@@ -9,4 +9,4 @@ spec:
   - protocol: TCP
     port: 34400
     targetPort: 34400
-  type: LoadBalancer
+  type: ClusterIP
