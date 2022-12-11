@@ -8,7 +8,7 @@ spec:
   project: apps
   source:
     repoURL: https://github.com/hooray4me/cluster1.git
-    path: apps/sonarr
+    path: apps/sonarr/overlays/prod
     targetRevision: HEAD
   destination:
     namespace: media
