@@ -31,7 +31,7 @@ images:
 # patchesStrategicMerge:
 #   - overlay/patch-env-from.yaml
 
-configMapGenerator:
-  - envs:
-      - overlay/nogpg.yaml
-    name: envs
+# configMapGenerator:
+#   - envs:
+#       - overlay/nogpg.yaml
+#     name: envs
