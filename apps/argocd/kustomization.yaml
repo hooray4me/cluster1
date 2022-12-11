@@ -10,11 +10,10 @@ resources:
 - base/projects/networking.yaml
 - base/core/namespaces.yaml
 - base/core/argocd.yaml
+- base/core/virtualservice.yaml
+- base/core/destinationrule.yaml
 - base/apps/root-app.yaml
-# - base/apps/sonarr.yaml
-# - base/apps/sabnzbd.yaml
-# - base/apps/radarr.yaml
-# - base/apps/xteve.yaml
+
 - https://raw.githubusercontent.com/argoproj/argo-cd/v2.3.11/manifests/install.yaml
 
 # components:
