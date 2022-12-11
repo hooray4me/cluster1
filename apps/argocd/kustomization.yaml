@@ -12,8 +12,8 @@ resources:
 - base/core/argocd.yaml
 - https://raw.githubusercontent.com/argoproj/argo-cd/v2.3.11/manifests/install.yaml
 
-components:
-- https://github.com/argoproj-labs/argocd-extensions/manifests
+# components:
+# - https://github.com/argoproj-labs/argocd-extensions/manifests
 
 patchesJson6902:
 - path: overlay/deploy-command.yaml
