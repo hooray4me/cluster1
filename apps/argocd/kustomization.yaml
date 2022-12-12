@@ -35,7 +35,7 @@ images:
 patchesStrategicMerge:
 #   - overlay/patch-env-from.yaml
   - overlay/argocd-cm.patch.yaml
-#   - overlay/argocd-rbac-cm.yaml
+  - overlay/argocd-rbac-cm.yaml
 
 # configMapGenerator:
 #   - envs:
