@@ -32,10 +32,10 @@ images:
 - name: quay.io/argoproj/argocd
   newTag: v2.3.11
 
-patchesStrategicMerge:
-  # - overlay/patch-env-from.yaml
-  - overlay/argocd-cm.yaml
-  - overlay/argocd-rbac-cm.yaml
+# patchesStrategicMerge:
+#   - overlay/patch-env-from.yaml
+#   - overlay/argocd-cm.yaml
+#   - overlay/argocd-rbac-cm.yaml
 
 # configMapGenerator:
 #   - envs:
