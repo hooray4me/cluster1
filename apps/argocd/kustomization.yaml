@@ -30,7 +30,7 @@ patchesJson6902:
 namespace: argocd
 images:
 - name: quay.io/argoproj/argocd
-  newTag: v2.4.17
+  newTag: v2.3.11
 
 patchesStrategicMerge:
 #   - overlay/patch-env-from.yaml
