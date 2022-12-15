@@ -5,5 +5,3 @@ namespace: authentik
 
 resources:
   - ../../base
-  - sealed-postgresql-infrastructure-roles.yaml
-  - operator-configuration.yaml

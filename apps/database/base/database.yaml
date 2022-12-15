@@ -1,7 +1,7 @@
 apiVersion: "acid.zalan.do/v1"
 kind: postgresql
 metadata:
-  name: acid-minimal-cluster
+  name: cluster
 spec:
   teamId: "acid"
   volume:
@@ -11,8 +11,8 @@ spec:
     authentik.authentik:  # database owner
     - superuser
     - createdb
-    authentik_user: []  # role for application foo
+    # authentik_user: []
   databases:
-    authentik: authentik.authentik  # dbname: owner
+    authentik: authentik  # dbname: owner
   postgresql:
     version: "14"
