@@ -1,3 +1,3 @@
 # GitOps Cluster Management
 
-initial with kubectl apply -k apps/argocd
+initialize with kubectl apply -k apps/argocd
