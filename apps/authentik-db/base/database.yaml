@@ -8,7 +8,7 @@ spec:
     size: 2Gi
   numberOfInstances: 2
   users:
-    authentik.authentik:  # database owner
+    authentik:  # database owner
     - superuser
     - createdb
     # authentik_user: []
