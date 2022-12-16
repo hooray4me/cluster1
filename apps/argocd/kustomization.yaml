@@ -36,7 +36,7 @@ patchesStrategicMerge:
   # - overlay/patch-env-from.yaml
   - overlay/argocd-cm.patch.yaml
   - overlay/argocd-rbac-cm.patch.yaml
-#
+
 # configMapGenerator:
 #   - envs:
 #       - overlay/nogpg.yaml
