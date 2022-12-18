@@ -10,6 +10,17 @@ resources:
   - https://raw.githubusercontent.com/zalando/postgres-operator/v1.8.2/ui/manifests/service.yaml
   - https://raw.githubusercontent.com/zalando/postgres-operator/v1.8.2/ui/manifests/ui-service-account-rbac.yaml
 
+patches:
+- patch: |-
+    - op: replace
+      path: "/spec/template/spec/containers/0/env/-"
+      value:
+        name: targetNamespace
+        value: "*"
+  target:
+    kind: Deployment
+    namespace: postgres-operator
+    name: postgres-operator-ui
 patchesStrategicMerge:
 - |-
   apiVersion: networking.k8s.io/v1
@@ -17,7 +28,8 @@ patchesStrategicMerge:
   metadata:
     name: postgres-operator-ui
   $patch: delete
-- patch-env-from.yaml
+# - patch-env-from.yaml
+
 # patchesStrategicMerge:
 #   - patch-env-from.yaml
 #   - "ingress.yaml"
