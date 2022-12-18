@@ -10,5 +10,11 @@ resources:
   - https://raw.githubusercontent.com/zalando/postgres-operator/v1.8.2/ui/manifests/service.yaml
   - https://raw.githubusercontent.com/zalando/postgres-operator/v1.8.2/ui/manifests/ui-service-account-rbac.yaml
 
-# patchesStrategicMerge:
+patchesStrategicMerge:
+  - patch-env-from.yaml
 #   - "ingress.yaml"
+
+configMapGenerator:
+  - envs:
+      - envs.yaml
+    name: envs
