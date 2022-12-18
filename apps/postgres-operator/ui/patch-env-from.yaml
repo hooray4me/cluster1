@@ -7,7 +7,7 @@ spec:
   template:
     spec:
       containers:
-        - name: postgres-operator-ui
+        - name: "*"
           envFrom:
             - configMapRef:
                 name: envs
