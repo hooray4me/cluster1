@@ -17,11 +17,12 @@ patchesStrategicMerge:
   metadata:
     name: postgres-operator-ui
   $patch: delete
+- patch-env-from.yaml
 # patchesStrategicMerge:
 #   - patch-env-from.yaml
 #   - "ingress.yaml"
 
-# configMapGenerator:
-#   - envs:
-#       - envs.yaml
-#     name: envs
+configMapGenerator:
+  - envs:
+      - envs.yaml
+    name: envs
