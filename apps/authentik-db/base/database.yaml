@@ -5,7 +5,7 @@ metadata:
 spec:
   teamId: "acid"
   volume:
-    size: 2Gi
+    size: 10Gi
   numberOfInstances: 2
   users:
     authentik:  # database owner
