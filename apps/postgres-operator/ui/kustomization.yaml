@@ -34,7 +34,7 @@ patchesStrategicMerge:
 #   - patch-env-from.yaml
 #   - "ingress.yaml"
 
-configMapGenerator:
-  - envs:
-      - envs.yaml
-    name: envs
+# configMapGenerator:
+#   - envs:
+#       - envs.yaml
+#     name: envs
