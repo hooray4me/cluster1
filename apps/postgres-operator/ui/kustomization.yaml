@@ -4,23 +4,11 @@ kind: Kustomization
 namespace: postgres-operator
 
 resources:
-  # - configmap.yaml
-  - https://raw.githubusercontent.com/zalando/postgres-operator/v1.8.2/ui/manifests/deployment.yaml
+  - deployment.yaml
   - https://raw.githubusercontent.com/zalando/postgres-operator/v1.8.2/ui/manifests/ingress.yaml
   - https://raw.githubusercontent.com/zalando/postgres-operator/v1.8.2/ui/manifests/service.yaml
   - https://raw.githubusercontent.com/zalando/postgres-operator/v1.8.2/ui/manifests/ui-service-account-rbac.yaml
 
-patches:
-- patch: |-
-    - op: replace
-      path: "/spec/template/spec/containers/0/env/-"
-      value:
-        name: TARGET_NAMESPACE
-        value: "*"
-  target:
-    kind: Deployment
-    namespace: postgres-operator
-    name: postgres-operator-ui
 patchesStrategicMerge:
 - |-
   apiVersion: networking.k8s.io/v1
