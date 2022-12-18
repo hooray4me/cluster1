@@ -4,6 +4,7 @@ kind: Kustomization
 namespace: postgres-operator
 
 resources:
+  - pod-config.yaml
   - ../../base
   - ../../ui
   
