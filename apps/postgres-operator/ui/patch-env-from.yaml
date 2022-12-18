@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Pod
 metadata:
   name: postgres-operator-ui
+  namespace: postgres-operator-ui
 spec:
   template:
     spec:
