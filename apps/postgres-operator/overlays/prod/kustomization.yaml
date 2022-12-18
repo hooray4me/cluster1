@@ -6,7 +6,7 @@ namespace: postgres-operator
 resources:
   - pod-config.yaml
   - ../../base
-  # - ../../ui
+  - ../../ui
   
 patchesStrategicMerge:
   - configmap.yaml
