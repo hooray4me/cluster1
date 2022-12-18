@@ -9,12 +9,16 @@ data:
   USE_WALG_BACKUP: "true"
   USE_WALG_RESTORE: "true"
   BACKUP_SCHEDULE: '00 12 * * *'
+  AWS_ACCESS_KEY_ID: "postgresql"
+  AWS_SECRET_ACCESS_KEY: ""
   AWS_S3_FORCE_PATH_STYLE: "true"
   AWS_ENDPOINT: http://minio.apps.svc.cluster.local:9000
   AWS_REGION: de01
   WALG_DISABLE_S3_SSE: "true"
   BACKUP_NUM_TO_RETAIN: "5"
   CLONE_USE_WALG_RESTORE: "true"
+  CLONE_AWS_ACCESS_KEY_ID: "postgres_user"
+  CLONE_AWS_SECRET_ACCESS_KEY : ""
   CLONE_AWS_ENDPOINT: http://minio.apps.svc.cluster.local:9000
   CLONE_AWS_REGION: de01
   CLONE_METHOD: CLONE_WITH_WALE
