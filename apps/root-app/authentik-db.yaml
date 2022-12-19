@@ -4,6 +4,8 @@ metadata:
   name: authentik-db
   finalizers:
     - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   project: apps
   source:
