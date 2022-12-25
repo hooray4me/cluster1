@@ -1,0 +1,14 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: acid-cluster-service-entry
+spec:
+  hosts:
+  - acid-cluster-0.acid-cluster.authentik.svc.cluster.local
+  - acid-cluster-1.acid-cluster.authentik.svc.cluster.local 
+  location: MESH_INTERNAL
+  ports:
+  - number: 5432
+    name: postgres
+    protocol: TCP
+  resolution: NONE

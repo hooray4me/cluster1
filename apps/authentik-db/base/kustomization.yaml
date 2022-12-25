@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - database.yaml
   - sealed-postgres-operator2.yaml
+  - serviceentry.yaml
