@@ -9,4 +9,5 @@ helmCharts:
 
 resources:
 - sealed-minio-secrets.yaml
+- destinationrule.yaml
 # - virtualservice.yaml
