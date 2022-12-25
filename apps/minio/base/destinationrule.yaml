@@ -1,0 +1,10 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: minio-dtrl
+  namespace: apps
+spec:
+  host: minio.apps.svc.cluster.local
+  trafficPolicy:
+    tls:
+      mode: DISABLE
