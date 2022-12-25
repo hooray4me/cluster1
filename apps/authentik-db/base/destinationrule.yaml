@@ -8,3 +8,14 @@ spec:
   trafficPolicy:
     tls:
       mode: DISABLE
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: authentik-dtrl
+  namespace: authentik
+spec:
+  host: authentik.authentik.svc.cluster.local
+  trafficPolicy:
+    tls:
+      mode: DISABLE
