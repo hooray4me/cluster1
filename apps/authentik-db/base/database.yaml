@@ -3,6 +3,8 @@ kind: postgresql
 metadata:
   name: acid-cluster
 spec:
+  patroni:
+    retry_timeout: 128
   teamId: "acid"
   volume:
     size: 10Gi
