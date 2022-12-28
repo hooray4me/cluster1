@@ -34,7 +34,7 @@ spec:
           name: radarr-config
           subPath: config
         - mountPath: /mnt/NAS/movies
-          name: nfs-proxmox3-1
+          name: nfs-proxmox3-1-media
         - mountPath: /mnt/downloads
           subPath: downloads
           name: nfs-k8-media
@@ -43,7 +43,7 @@ spec:
       - name: nfs-k8-media
         persistentVolumeClaim:
            claimName: nfs-k8c
-      - name: nfs-proxmox3-1
+      - name: nfs-proxmox3-1-media
         persistentVolumeClaim:
           claimName: nfs-proxmox3-1c
   volumeClaimTemplates:
