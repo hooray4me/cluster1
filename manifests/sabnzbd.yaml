@@ -4,8 +4,8 @@ metadata:
   name: sabnzbd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
-  annotations:
-    argocd.argoproj.io/sync-wave: "3"
+  # annotations:
+  #   argocd.argoproj.io/sync-wave: "3"
 spec:
   project: apps
   source:
@@ -21,15 +21,15 @@ spec:
       selfHeal: true
       allowEmpty: true
     syncOptions:
-    - Validate=true
+    # - Validate=true
     - CreateNamespace=true
     - PrunePropagationPolicy=foreground
     - PruneLast=true
     - ApplyOutOfSyncOnly=false
     - Prune=true
-    retry:
-      limit: -1
-      backoff:
-        duration: 20s
-        factor: 2
-        maxDuration: 15m
+    # retry:
+    #   limit: -1
+    #   backoff:
+    #     duration: 20s
+    #     factor: 2
+    #     maxDuration: 15m

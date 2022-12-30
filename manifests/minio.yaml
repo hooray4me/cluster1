@@ -4,8 +4,8 @@ metadata:
   name: minio
   finalizers:
     - resources-finalizer.argocd.argoproj.io
-  annotations:
-    argocd.argoproj.io/sync-wave: "1"
+  # annotations:
+  #   argocd.argoproj.io/sync-wave: "1"
 spec:
   project: apps
   source:
