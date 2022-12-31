@@ -19,3 +19,25 @@ spec:
   trafficPolicy:
     tls:
       mode: DISABLE
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: ak-outpost-authentik-dtrl
+  namespace: authentik
+spec:
+  host: ak-outpost-authentik-embedded-outpost.default.svc.cluster.local
+  trafficPolicy:
+    tls:
+      mode: DISABLE
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: ak-outpost-ldap-dtrl
+  namespace: authentik
+spec:
+  host: ak-outpost-ldap.authentik.svc.cluster.local
+  trafficPolicy:
+    tls:
+      mode: DISABLE
