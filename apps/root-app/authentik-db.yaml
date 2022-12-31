@@ -4,6 +4,7 @@ metadata:
   name: authentik-db
   finalizers:
     - resources-finalizer.argocd.argoproj.io
+    - kubernetes.io/pv-protection
   # annotations:
   #   argocd.argoproj.io/sync-wave: "1"
 spec:
