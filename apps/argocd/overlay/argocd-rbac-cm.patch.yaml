@@ -18,3 +18,6 @@ data:
       p, role:admin, gpgkeys, get, *, allow
       p, role:admin, gpgkeys, create, *, allow
       p, role:admin, gpgkeys, delete, *, allow
+      p, role:argocd-repo-server, gpgkeys, get, *, allow
+      p, role:argocd-repo-server, gpgkeys, create, *, allow
+      p, role:argocd-repo-server, gpgkeys, delete, *, allow
