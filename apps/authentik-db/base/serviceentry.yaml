@@ -6,7 +6,7 @@ spec:
   hosts:
   - acid-cluster-0.acid-cluster.authentik.svc.cluster.local
   - acid-cluster-1.acid-cluster.authentik.svc.cluster.local
-  - acid-cluster-3.acid-cluster.authentik.svc.cluster.local
+  - acid-cluster-2.acid-cluster.authentik.svc.cluster.local
   location: MESH_INTERNAL
   ports:
   - number: 5432
