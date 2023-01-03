@@ -8,3 +8,25 @@ spec:
   trafficPolicy:
     tls:
       mode: DISABLE
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: argocd-repo-server-dtrl
+  namespace: argocd
+spec:
+  host: argocd-repo-server.argocd.svc.cluster.local
+  trafficPolicy:
+    tls:
+      mode: DISABLE
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: argocd-redis-dtrl
+  namespace: argocd
+spec:
+  host: argocd-redis.argocd.svc.cluster.local
+  trafficPolicy:
+    tls:
+      mode: DISABLE
