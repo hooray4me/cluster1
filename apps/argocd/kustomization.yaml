@@ -14,7 +14,7 @@ resources:
 - base/core/destinationrule.yaml
 - base/apps/root-app.yaml
 
-- https://raw.githubusercontent.com/argoproj/argo-cd/v2.3.11/manifests/install.yaml
+- https://raw.githubusercontent.com/argoproj/argo-cd/v2.5.5/manifests/ha/install.yaml
 
 components:
 - https://github.com/argoproj-labs/argocd-extensions/manifests
