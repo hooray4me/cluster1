@@ -5,10 +5,11 @@ metadata:
 spec:
   patroni:
     retry_timeout: 128
+  enableLogicalBackup: true
   teamId: "acid"
   volume:
     size: 10Gi
-  numberOfInstances: 2
+  numberOfInstances: 3
   users:
     authentik:  # database owner
     - superuser
