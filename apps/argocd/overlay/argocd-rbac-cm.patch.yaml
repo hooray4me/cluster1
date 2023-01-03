@@ -9,15 +9,3 @@ metadata:
 data:
   policy.csv: |
       g, authentik Admins, role:admin
-      p, role:admin, applications, *, */*, allow
-      p, role:admin, clusters, get, *, allow
-      p, role:admin, repositories, get, *, allow
-      p, role:admin, repositories, create, *, allow
-      p, role:admin, repositories, update, *, allow
-      p, role:admin, repositories, delete, *, allow
-      p, role:admin, gpgkeys, get, *, allow
-      p, role:admin, gpgkeys, create, *, allow
-      p, role:admin, gpgkeys, delete, *, allow
-      p, role:argocd-repo-server, gpgkeys, get, *, allow
-      p, role:argocd-repo-server, gpgkeys, create, *, allow
-      p, role:argocd-repo-server, gpgkeys, delete, *, allow

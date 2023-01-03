@@ -14,7 +14,7 @@ resources:
 - base/core/destinationrule.yaml
 - base/apps/root-app.yaml
 
-- https://raw.githubusercontent.com/argoproj/argo-cd/v2.5.4/manifests/install.yaml
+- https://raw.githubusercontent.com/argoproj/argo-cd/v2.5.2/manifests/install.yaml
 
 components:
 - https://github.com/argoproj-labs/argocd-extensions/manifests
@@ -30,7 +30,7 @@ patchesJson6902:
 namespace: argocd
 images:
 - name: quay.io/argoproj/argocd
-  newTag: v2.5.4
+  newTag: v2.5.2
 
 patchesStrategicMerge:
   - overlay/patch-env-from.yaml
