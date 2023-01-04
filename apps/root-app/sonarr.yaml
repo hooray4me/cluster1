@@ -17,8 +17,8 @@ spec:
     name: in-cluster
   syncPolicy:
     automated:
-      prune: true
-      selfHeal: true
+      # prune: true
+      # selfHeal: true
       allowEmpty: true
     syncOptions:
     # - Validate=true
