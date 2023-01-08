@@ -5,7 +5,7 @@ metadata:
 spec:
   patroni:
     retry_timeout: 128
-  enableLogicalBackup: true
+  # enableLogicalBackup: true
   teamId: "acid"
   volume:
     size: 10Gi
