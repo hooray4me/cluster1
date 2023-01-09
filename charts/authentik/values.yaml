@@ -225,7 +225,7 @@ livenessProbe:
     path: /-/health/live/
     port: http
   initialDelaySeconds: 50
-  periodSeconds: 10
+  periodSeconds: 30
 
 readinessProbe:
   enabled: true
@@ -233,7 +233,7 @@ readinessProbe:
     path: /-/health/ready/
     port: http
   initialDelaySeconds: 50
-  periodSeconds: 10
+  periodSeconds: 30
 
 serviceAccount:
   # -- Service account is needed for managed outposts
