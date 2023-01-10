@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: readarr-statefulset
+  labels:
+    app: readarr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readarr
+  serviceName: readarr-service
+  template:
+    metadata:
+      labels:
+        app: readarr
+    spec:
+      containers:
+      - image: linuxserver/readarr:amd64-develop
+        name: readarr
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8787
+          name: readarr
+        env:
+        - name: UID
+          value: "999"
+        - name: GID
+          value: "999"
+        - name: TZ
+          value: America/Chicago
+        volumeMounts:
+        - mountPath: /config
+          name: readarr-config
+          subPath: config
+        - mountPath: /mnt/NAS
+          name: nfs-emby-media
+        - mountPath: /downloads
+          subPath: downloads
+          name: nfs-k8-media
+      terminationGracePeriodSeconds: 10
+      volumes:
+      - name: nfs-k8-media
+        persistentVolumeClaim:
+           claimName: nfs-k8c
+      - name: nfs-emby-media
+        persistentVolumeClaim:
+          claimName: nfs-embyc
+  volumeClaimTemplates:
+  - metadata:
+      name: readarr-config
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 2Gi

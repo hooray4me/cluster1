@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: readarr-service
+spec:
+  selector:
+    app: readarr
+  ports:
+  - protocol: TCP
+    port: 8787
+    targetPort: 8787
+  type: ClusterIP
