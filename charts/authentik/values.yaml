@@ -85,7 +85,8 @@ authentik:
     # if unset and .Values.postgresql.enabled == true, will generate the default
     # @default -- `{{ .Release.Name }}-postgresql`
     # host: '{{ .Release.Name }}-postgresql'
-    host: 'acid-cluster.authentik.svc.cluster.local'
+    # host: 'acid-cluster.authentik.svc.cluster.local'
+    host: '10.40.0.210'
     # -- postgresql Database name
     # @default -- `authentik`
     name: "authentik"
@@ -146,22 +147,22 @@ envValueFrom:
     secretKeyRef:
       key: secret-key
       name: authentik-secrets
-  # AUTHENTIK_POSTGRESQL__PASSWORD:
-  #   secretKeyRef:
-  #     key: postgresql-password
-  #     name: authentik-secrets
-  # POSTGRESQL__POSTGRESQLPASSWORD:
-  #   secretKeyRef:
-  #     key: postgresql-password
-  #     name: authentik-secrets
   AUTHENTIK_POSTGRESQL__PASSWORD:
     secretKeyRef:
-      key: password
-      name: authentik.acid-cluster.credentials.postgresql.acid.zalan.do
+      key: postgresql-password
+      name: authentik-secrets
   POSTGRESQL__POSTGRESQLPASSWORD:
     secretKeyRef:
-      key: password
-      name: authentik.acid-cluster.credentials.postgresql.acid.zalan.do
+      key: postgresql-password
+      name: authentik-secrets
+  # AUTHENTIK_POSTGRESQL__PASSWORD:
+  #   secretKeyRef:
+  #     key: password
+  #     name: authentik.acid-cluster.credentials.postgresql.acid.zalan.do
+  # POSTGRESQL__POSTGRESQLPASSWORD:
+  #   secretKeyRef:
+  #     key: password
+  #     name: authentik.acid-cluster.credentials.postgresql.acid.zalan.do
   AUTHENTIK_EMAIL__HOST:
     secretKeyRef:
       key: email-host
