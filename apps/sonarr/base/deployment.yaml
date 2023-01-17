@@ -16,7 +16,7 @@ spec:
         app: sonarr
     spec:
       containers:
-      - image: linuxserver/sonarr:amd64-latest
+      - image: lscr.io/linuxserver/sonarr:latest
         name: sonarr
         imagePullPolicy: Always
         ports:
