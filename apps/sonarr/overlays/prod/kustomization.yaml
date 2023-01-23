@@ -3,6 +3,12 @@ kind: Kustomization
 
 namespace: media
 
-resources:
+images:
+- name: lscr.io/linuxserver/sonarr
+  newTag: latest
+
+bases:
   - ../../base
-#  - ../../virtualservice
+
+resources:
+- virtualservice.yaml

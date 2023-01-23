@@ -3,5 +3,9 @@ kind: Kustomization
 
 namespace: apps
 
-resources:
+bases:
   - ../../base
+
+resources:
+- sealed-minio-secrets.yaml
+- virtualservice.yaml

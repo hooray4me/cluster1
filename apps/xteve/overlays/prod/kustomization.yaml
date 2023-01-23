@@ -3,5 +3,13 @@ kind: Kustomization
 
 namespace: media
 
-resources:
+images:
+- name: alturismo/xteve
+  newTag: latest
+
+bases:
   - ../../base
+
+resources:
+- virtualservice.yaml
+- destinationrule.yaml

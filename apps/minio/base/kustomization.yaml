@@ -6,7 +6,3 @@ helmCharts:
   releaseName: minio
   namespace: apps
   valuesFile: values.yaml
-
-resources:
-- sealed-minio-secrets.yaml
-# - virtualservice.yaml

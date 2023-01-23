@@ -3,5 +3,12 @@ kind: Kustomization
 
 namespace: media
 
-resources:
+bases:
   - ../../base
+
+images:
+- name: linuxserver/sabnzbd
+  newTag: amd64-latest
+
+resources:
+- virtualservice.yaml

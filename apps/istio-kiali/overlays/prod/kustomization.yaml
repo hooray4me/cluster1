@@ -3,5 +3,14 @@ kind: Kustomization
 
 namespace: istio-system
 
-resources:
+bases:
   - ../../base
+
+resources:
+- serviceaccount.yaml
+- configmap.yaml
+- clusterrole.yaml
+- clusterrolebinding.yaml
+- role.yaml
+- rolebinding.yamll
+- virtualservice.yaml
