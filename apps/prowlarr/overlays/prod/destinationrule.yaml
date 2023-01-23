@@ -1,0 +1,10 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: prowlarr-dtrl
+  namespace: media
+spec:
+  host: prowlarr-service.media.svc.cluster.local
+  trafficPolicy:
+    tls:
+      mode: DISABLE

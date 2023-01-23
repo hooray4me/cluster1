@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: prowlarr
+    argocd.argoproj.io/instance: prowlarr
+  name: prowlarr
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prowlarr
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: prowlarr
+    spec:
+      containers:
+        - image: 'linuxserver/prowlarr:latest'
+          imagePullPolicy: IfNotPresent
+          name: prowlarr
+          ports:
+            - containerPort: 9696
+              protocol: TCP
+          env:
+          - name: UID
+            value: "999"
+          - name: GID
+            value: "999"
+          - name: TZ
+            value: America/Chicago
+          resources:
+            limits: 
+              cpu: "1"
+              memory: 2Gi
+          volumeMounts:
+            - mountPath: /config
+              name: nfs-k8-media
+              subPath: prowlarr
+      dnsPolicy: ClusterFirst
+      terminationGracePeriodSeconds: 30
+      volumes:
+        - name: nfs-k8-media
+          persistentVolumeClaim:
+            claimName: nfs-k8c
