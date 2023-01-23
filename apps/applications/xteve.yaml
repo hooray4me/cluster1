@@ -4,8 +4,8 @@ metadata:
   name: xteve
   finalizers:
     - resources-finalizer.argocd.argoproj.io
-  # annotations:
-  #   argocd.argoproj.io/sync-wave: "3"
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
 spec:
   project: apps
   source:
