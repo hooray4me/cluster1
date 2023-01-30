@@ -1,50 +1,57 @@
 apiVersion: apps/v1
-kind: StatefulSet
+kind: Deployment
 metadata:
-  name: xteve-statefulset
   labels:
     app: xteve
+    argocd.argoproj.io/instance: xteve
+  name: xteve
 spec:
+  progressDeadlineSeconds: 600
   replicas: 1
   selector:
     matchLabels:
       app: xteve
-  serviceName: xteve-service
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
   template:
     metadata:
       labels:
         app: xteve
     spec:
       containers:
-      - image: alturismo/xteve:latest
-        name: xteve
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 34400
+        - image: 'alturismo/xteve:latest'
+          imagePullPolicy: IfNotPresent
           name: xteve
-        env:
-        - name: UID
-          value: "999"
-        - name: GID
-          value: "999"
-        - name: TZ
-          value: America/Chicago
-        volumeMounts:
-        - mountPath: /config
-          name: xteve
-          subPath: config
-        - mountPath: /root/.xteve
-          name: xteve
-          subPath: root
-        - mountPath: /tmp/xteve
-          name: xteve
-          subPath: tmp
-      terminationGracePeriodSeconds: 10
-  volumeClaimTemplates:
-  - metadata:
-      name: xteve
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      resources:
-        requests:
-          storage: 10Gi
+          ports:
+            - containerPort: 34400
+              protocol: TCP
+          env:
+          - name: UID
+            value: "999"
+          - name: GID
+            value: "999"
+          - name: TZ
+            value: America/Chicago
+          resources:
+            limits: 
+              cpu: "1"
+              memory: 2Gi
+          volumeMounts:
+            - mountPath: /config
+              name: nfs-proxmox1-xteve
+              subPath: config
+            - mountPath: /root/.xteve
+              name: nfs-proxmox1-xteve
+              subPath: root
+            - mountPath: /tmp/xteve
+              name: nfs-proxmox1-xteve
+              subPath: tmp
+      dnsPolicy: ClusterFirst
+      terminationGracePeriodSeconds: 30
+      volumes:
+        - name: nfs-proxmox1-xteve
+          persistentVolumeClaim:
+            claimName: nfs-proxmox1-xteve-claim
