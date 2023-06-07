@@ -60,13 +60,15 @@ zabbixProxy:
       value: 3
     ## Cache size
     - name: ZBX_CACHESIZE
+      value: 256M
+    - name: ZBX_VALUECACHESIZE
       value: 128M
     ## The variable enable communication with Zabbix Java Gateway to collect Java related checks
     - name: ZBX_JAVAGATEWAY_ENABLE
       value: false
     ## How often the proxy retrieves configuration data from Zabbix server in seconds. Active proxy parameter. Ignored for passive proxies.
     - name: ZBX_PROXYCONFIGFREQUENCY
-      value: 10
+      value: 60
     ## List can be extended with other environment variables listed here: https://github.com/zabbix/zabbix-docker/tree/6.4/Dockerfiles/proxy-sqlite3#other-variables
     ## For example:
     ## The variable is list of comma separated loadable Zabbix modules.
@@ -230,8 +232,8 @@ zabbixAgent:
     ## - name: ZBX_ACTIVESERVERS 
     ##   value: ''
     ## The variable is comma separated list of allowed Zabbix server or proxy hosts for connections to Zabbix agent 2 container.
-    ## - name: ZBX_PASSIVESERVERS
-    ##   value: 0.0.0.0/0
+    - name: ZBX_PASSIVESERVERS
+      value: 0.0.0.0/0
     ## The variable is list of comma separated loadable Zabbix modules. It works with volume /var/lib/zabbix/modules.
     ## - name: ZBX_LOADMODULE
     ##   value: ''

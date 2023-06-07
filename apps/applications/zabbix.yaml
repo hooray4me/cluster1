@@ -17,18 +17,8 @@ spec:
       parameters:
           - name: zabbixAgent.enabled
             value: "true"
-          - name: ZBX_PASSIVESERVERS
-            value: "0.0.0.0/0"
-          - name: ZBX_HOSTNAME
-            value: "zabbix-proxy"
-          - name: ZBX_SERVER_HOST
+          - name: zabbixProxy.env[2].ZBX_SERVER_HOST
             value: "monitor-dev.goilluminate.com:10051"
-          - name: ZBX_CACHESIZE
-            value: "256M"
-          - name: ZBX_VALUECACHESIZE
-            value: "128M"
-          - name: ZBX_CONFIGFREQUENCY
-            value: "60"
     targetRevision: HEAD
   destination:
     namespace: monitoring
