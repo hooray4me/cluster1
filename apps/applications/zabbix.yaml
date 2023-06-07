@@ -17,8 +17,6 @@ spec:
       parameters:
           - name: zabbixAgent.enabled
             value: "true"
-          - name: zabbixProxy.env[2].ZBX_SERVER_HOST
-            value: "monitor-dev.goilluminate.com:10051"
     targetRevision: HEAD
   destination:
     namespace: monitoring
