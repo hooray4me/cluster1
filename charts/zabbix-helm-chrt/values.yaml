@@ -232,8 +232,8 @@ zabbixAgent:
     ## - name: ZBX_ACTIVESERVERS 
     ##   value: ''
     ## The variable is comma separated list of allowed Zabbix server or proxy hosts for connections to Zabbix agent 2 container.
-    # - name: ZBX_PASSIVESERVERS
-    #   value: 0.0.0.0/0
+    - name: ZBX_PASSIVESERVERS
+      value: 0.0.0.0/0
     ## The variable is list of comma separated loadable Zabbix modules. It works with volume /var/lib/zabbix/modules.
     ## - name: ZBX_LOADMODULE
     ##   value: ''
