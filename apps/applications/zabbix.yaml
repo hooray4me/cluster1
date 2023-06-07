@@ -17,17 +17,17 @@ spec:
       parameters:
           - name: zabbixAgent.enabled
             value: "true"
-          - name: zabbixAgent.ZBX_PASSIVESERVERS
+          - name: ZBX_PASSIVESERVERS
             value: "0.0.0.0/0"
-          - name: zabbixProxy.ZBX_HOSTNAME
+          - name: ZBX_HOSTNAME
             value: "zabbix-proxy"
-          - name: zabbixProxy.ZBX_SERVER_HOST
+          - name: ZBX_SERVER_HOST
             value: "monitor-dev.goilluminate.com:10051"
-          - name: zabbixProxy.ZBX_CACHESIZE
+          - name: ZBX_CACHESIZE
             value: "256M"
-          - name: zabbixProxy.ZBX_VALUECACHESIZE
+          - name: ZBX_VALUECACHESIZE
             value: "128M"
-          - name: zabbixProxy.ZBX_CONFIGFREQUENCY
+          - name: ZBX_CONFIGFREQUENCY
             value: "60"
     targetRevision: HEAD
   destination:
