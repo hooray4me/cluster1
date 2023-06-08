@@ -210,7 +210,7 @@ zabbixAgent:
   env:
       ## Zabbix server host
     - name: ZBX_SERVER_HOST
-      value: 127.0.0.1
+      value: monitor-dev.goilluminate.com
       ## Zabbix server port
     - name: ZBX_SERVER_PORT
       value: 10051
