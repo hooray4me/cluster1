@@ -210,7 +210,7 @@ zabbixAgent:
   env:
       ## Zabbix server host
     - name: ZBX_SERVER_HOST
-      value: monitor-dev.goilluminate.com
+      value: 127.0.0.1
       ## Zabbix server port
     - name: ZBX_SERVER_PORT
       value: 10051
@@ -229,8 +229,8 @@ zabbixAgent:
     ## List can be extended with other environment variables listed here: https://github.com/zabbix/zabbix-docker/tree/6.4/Dockerfiles/agent2/alpine#other-variables
     ## For example:
     ## The variable is comma separated list of allowed Zabbix server or proxy hosts for connections to Zabbix agent 2 container. You may specify port of Zabbix server or Zabbix proxy in such syntax: zabbix-server:10061,zabbix-proxy:10072
-    ## - name: ZBX_ACTIVESERVERS 
-    ##   value: ''
+    - name: ZBX_ACTIVESERVERS 
+      value:  0.0.0.0/0
     ## The variable is comma separated list of allowed Zabbix server or proxy hosts for connections to Zabbix agent 2 container.
     - name: ZBX_PASSIVESERVERS
       value: 0.0.0.0/0
