@@ -1,32 +1,32 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: zabbix
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
-  annotations:
-    argocd.argoproj.io/sync-wave: "1"
-spec:
-  project: monitoring
-  source:
-    repoURL: https://github.com/hooray4me/cluster1.git
-    path: charts/zabbix-helm-chrt
-    helm:
-      valueFiles:
-         - values.yaml
-      parameters:
-          - name: zabbixAgent.enabled
-            value: "true"
-    targetRevision: HEAD
-  destination:
-    namespace: monitoring
-    name: in-cluster
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-      allowEmpty: true
-    syncOptions:
-    - CreateNamespace=true
-    - PrunePropagationPolicy=foreground
-    - ApplyOutOfSyncOnly=false
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: zabbix
+#   finalizers:
+#     - resources-finalizer.argocd.argoproj.io
+#   annotations:
+#     argocd.argoproj.io/sync-wave: "1"
+# spec:
+#   project: monitoring
+#   source:
+#     repoURL: https://github.com/hooray4me/cluster1.git
+#     path: charts/zabbix-helm-chrt
+#     helm:
+#       valueFiles:
+#          - values.yaml
+#       parameters:
+#           - name: zabbixAgent.enabled
+#             value: "true"
+#     targetRevision: HEAD
+#   destination:
+#     namespace: monitoring
+#     name: in-cluster
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
+#       allowEmpty: true
+#     syncOptions:
+#     - CreateNamespace=true
+#     - PrunePropagationPolicy=foreground
+#     - ApplyOutOfSyncOnly=false
